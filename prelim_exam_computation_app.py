@@ -1,56 +1,56 @@
 import streamlit as st
 
-# Set page config with a hacker-themed emoji icon
-st.set_page_config(page_title=" Grade Calculator", page_icon="💻", layout="centered")
+# Set page config with a Roblox-themed emoji icon
+st.set_page_config(page_title="🎮 Grade Calculator", page_icon="🕹️", layout="centered")
 
-# Custom CSS for hacker theme
+# Custom CSS for Roblox theme
 st.markdown(
     """
     <style>
     body {
-        background-color: black;
-        font-family: 'Courier New', monospace;
+        background-color: #ffcc00; /* Roblox yellow */
+        font-family: 'Arial', sans-serif;
+        color: #000000;
     }
     .main {
-        background-color: black;
+        background-color: #ffcc00;
     }
     h1 {
-        color: #00FF00;
+        color: #d00000; /* Roblox red */
         text-align: center;
-        font-family: 'Courier New', monospace;
-        font-size: 30px;
-        text-shadow: 0px 0px 5px #00FF00;
+        font-family: 'Arial', sans-serif;
+        font-size: 40px;
+        text-shadow: 2px 2px 5px #ffffff;
     }
     .stNumberInput > div > div > input {
-        background-color: #333333;
-        color: #00FF00;
-        font-family: 'Courier New', monospace;
-        border: 2px solid #00FF00;
+        background-color: #ffffff;
+        color: #000000;
+        font-family: 'Arial', sans-serif;
+        border: 2px solid #d00000; /* Roblox red */
     }
     .stButton button {
-        background-color: black;
-        color: #00FF00;
-        border-radius: 0;
+        background-color: #d00000; /* Roblox red */
+        color: #ffffff;
+        border-radius: 5px;
         padding: 10px 20px;
-        border: 2px solid #00FF00;
-        font-family: 'Courier New', monospace;
-        text-shadow: 0px 0px 5px #00FF00;
+        border: none;
+        font-family: 'Arial', sans-serif;
     }
     .stButton button:hover {
-        background-color: #333333;
-        color: #00FF00;
+        background-color: #a00000; /* Darker red */
+        color: #ffffff;
     }
     .stNumberInput div {
-        font-family: 'Courier New', monospace;
-        color: #00FF00;
+        font-family: 'Arial', sans-serif;
+        color: #000000;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# Title with hacker theme
-st.title("Grade Calculator")
+# Title with Roblox theme
+st.title("🎮 Grade Calculator")
 
 # Function to calculate required midterm and final grades
 def calculate_midterm_final(prelim_grade, target_grade):
@@ -71,7 +71,7 @@ def calculate_midterm_final(prelim_grade, target_grade):
 absences = st.number_input("Enter number of absences: ", min_value=0, step=1)
 
 if absences >= 4:
-    st.write("💀 **FAILED due to absences.**")
+    st.write("🚫 **FAILED due to absences.**")
 else:
     prelim_exam = st.number_input("Enter Prelim Exam Grade (0-100): ", 0.0, 100.0)
     quizzes = st.number_input("Enter Quizzes Grade (0-100): ", 0.0, 100.0)
