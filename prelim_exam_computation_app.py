@@ -1,7 +1,7 @@
 import streamlit as st
 
 # Set page config with a black and green theme
-st.set_page_config(page_title="🎮 Grade Calculator", page_icon="💻", layout="centered")
+st.set_page_config(page_title="🎮 Grade Calculator", page_icon="", layout="centered")
 
 # Custom CSS for black and green theme
 st.markdown(
@@ -58,7 +58,7 @@ st.markdown(
 )
 
 # Title with black and green theme
-st.title("🎮 Grade Calculator")
+st.title(" Grade Calculator")
 
 # Function to calculate required midterm and final grades
 def calculate_midterm_final(prelim_grade, target_grade):
