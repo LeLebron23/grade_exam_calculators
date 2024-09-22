@@ -1,7 +1,7 @@
 import streamlit as st
 
 # Set page config with a hacker-themed emoji icon
-st.set_page_config(page_title="Hacker Grade Calculator", page_icon="💻", layout="centered")
+st.set_page_config(page_title=" Grade Calculator", page_icon="💻", layout="centered")
 
 # Custom CSS for hacker theme
 st.markdown(
@@ -50,7 +50,7 @@ st.markdown(
 )
 
 # Title with hacker theme
-st.title("💻 Hacker Grade Calculator 💻")
+st.title("Grade Calculator")
 
 # Function to calculate required midterm and final grades
 def calculate_midterm_final(prelim_grade, target_grade):
