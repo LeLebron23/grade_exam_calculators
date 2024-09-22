@@ -1,44 +1,56 @@
 import streamlit as st
 
-# Set page config
-st.set_page_config(page_title="Grade Calculator", page_icon=":bar_chart:", layout="centered")
+# Set page config with Minecraft-style emoji icon
+st.set_page_config(page_title="Minecraft Grade Calculator", page_icon="🟫", layout="centered")
 
-# Custom CSS for green theme
+# Custom CSS for Minecraft theme
 st.markdown(
     """
     <style>
     body {
-        background-color: #e6ffe6;
+        background-color: #c2b280;
+        font-family: 'Press Start 2P', cursive;
     }
     .main {
-        background-color: #e6ffe6;
+        background-color: #c2b280;
     }
     h1 {
-        color: #006600;
+        color: #1E1E1E;
         text-align: center;
+        font-family: 'Press Start 2P', cursive;
+        font-size: 24px;
     }
     .stNumberInput > div > div > input {
-        background-color: #f9f9f9;
-        color: #006600;
+        background-color: #f0e68c;
+        color: #1E1E1E;
+        font-family: 'Press Start 2P', cursive;
+        border: 2px solid #1E1E1E;
+        border-radius: 0;
     }
     .stButton button {
-        background-color: #006600;
+        background-color: #8B4513;
         color: white;
-        border-radius: 10px;
+        border-radius: 0;
         padding: 10px 20px;
-        border: none;
+        border: 2px solid #1E1E1E;
+        font-family: 'Press Start 2P', cursive;
     }
     .stButton button:hover {
-        background-color: #004d00;
+        background-color: #A0522D;
         color: white;
     }
+    .stNumberInput div {
+        font-family: 'Press Start 2P', cursive;
+    }
     </style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     """,
     unsafe_allow_html=True
 )
 
-# Title with green theme
-st.title("📊 Grade Calculator")
+# Title in Minecraft theme
+st.title("🟫 Minecraft Grade Calculator 🟫")
 
 # Function to calculate required midterm and final grades
 def calculate_midterm_final(prelim_grade, target_grade):
@@ -56,15 +68,15 @@ def calculate_midterm_final(prelim_grade, target_grade):
     return midterm_needed, final_needed
 
 # Input fields
-absences = st.number_input("Enter number of absences: ", min_value=0, step=1)
+absences = st.number_input("🟩 Enter number of absences: ", min_value=0, step=1)
 
 if absences >= 4:
-    st.write("**FAILED due to absences.**")
+    st.write("💀 **FAILED due to absences.**")
 else:
-    prelim_exam = st.number_input("Enter Prelim Exam Grade (0-100): ", 0.0, 100.0)
-    quizzes = st.number_input("Enter Quizzes Grade (0-100): ", 0.0, 100.0)
-    requirements = st.number_input("Enter Requirements Grade (0-100): ", 0.0, 100.0)
-    recitation = st.number_input("Enter Recitation Grade (0-100): ", 0.0, 100.0)
+    prelim_exam = st.number_input("📜 Enter Prelim Exam Grade (0-100): ", 0.0, 100.0)
+    quizzes = st.number_input("📚 Enter Quizzes Grade (0-100): ", 0.0, 100.0)
+    requirements = st.number_input("🛠️ Enter Requirements Grade (0-100): ", 0.0, 100.0)
+    recitation = st.number_input("🎤 Enter Recitation Grade (0-100): ", 0.0, 100.0)
 
     # Attendance calculation
     attendance = 100 - (absences * 10)
@@ -86,9 +98,9 @@ else:
     midterm_needed_for_deans, final_needed_for_deans = calculate_midterm_final(prelim_grade, target_deans)
 
     # Display required midterm and final grades for passing
-    st.write(f"To pass with 75% overall grade, you need a Midterm grade of {midterm_needed_for_pass:.2f} "
+    st.write(f"🎯 To pass with 75% overall grade, you need a Midterm grade of {midterm_needed_for_pass:.2f} "
              f"and a Final grade of {final_needed_for_pass:.2f}.")
     
     # Display required midterm and final grades for Dean's Lister
-    st.write(f"To achieve Dean's Lister status with 90% overall grade, you need a Midterm grade of "
+    st.write(f"🏅 To achieve Dean's Lister status with 90% overall grade, you need a Midterm grade of "
              f"{midterm_needed_for_deans:.2f} and a Final grade of {final_needed_for_deans:.2f}.")
