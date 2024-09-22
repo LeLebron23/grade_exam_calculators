@@ -27,6 +27,7 @@ st.markdown(
         color: #00FF00;
         font-family: 'Arial', sans-serif;
         border: 2px solid #00FF00; /* Green border */
+        width: 100px; /* Smaller input box */
     }
     .stButton button {
         background-color: #00FF00; /* Green button */
@@ -40,14 +41,16 @@ st.markdown(
         background-color: #00cc00; /* Darker green */
         color: black;
     }
-    .stNumberInput div {
-        font-family: 'Arial', sans-serif;
-        color: #00FF00;
-    }
     .input-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 20px; /* Space between boxes */
+    }
+    /* Hide the arrows for the number input */
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
     }
     </style>
     """,
@@ -79,10 +82,10 @@ if absences >= 4:
     st.write("🚫 **FAILED due to absences.**")
 else:
     st.markdown("<div class='input-container'>", unsafe_allow_html=True)
-    prelim_exam = st.number_input("Enter Prelim Exam Grade (0-100): ", 0.0, 100.0)
-    quizzes = st.number_input("Enter Quizzes Grade (0-100): ", 0.0, 100.0)
-    requirements = st.number_input("Enter Requirements Grade (0-100): ", 0.0, 100.0)
-    recitation = st.number_input("Enter Recitation Grade (0-100): ", 0.0, 100.0)
+    prelim_exam = st.number_input("Prelim Exam Grade (0-100): ", 0.0, 100.0)
+    quizzes = st.number_input("Quizzes Grade (0-100): ", 0.0, 100.0)
+    requirements = st.number_input("Requirements Grade (0-100): ", 0.0, 100.0)
+    recitation = st.number_input("Recitation Grade (0-100): ", 0.0, 100.0)
     st.markdown("</div>", unsafe_allow_html=True)
 
     # Attendance calculation
